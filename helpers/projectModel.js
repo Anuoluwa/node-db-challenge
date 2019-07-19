@@ -6,16 +6,12 @@ export function getId(id) {
       .first();
   }
 
-export function getProject(id) {
-  return db("projects")
-    .join("actions", "project_id", "projects.id")
-    .select("projects.*", [
-      "actions.description",
-      "actions.notes",
-      "actions.completed"
-    ])
-    .where({ project_id: id });
-}
+  export function getProject(id) {
+    return db('actions')
+      .join('projects', 'projects.id', 'project_id')
+      .select('actions.*', 'projects.*')
+      .where('project_id', id);
+  }
 
 export function insert(project) {
     return db("projects")
