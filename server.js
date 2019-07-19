@@ -1,5 +1,5 @@
 import express from 'express';
-import router from './controllers/recipes';
+import router from './routes'
 
 const server = express();
 server.use(express.json());
